@@ -26,7 +26,7 @@ export class StringSink {
   }
 
   get capacity(): i32 {
-    return changetype<OBJECT>(changetype<usize>(this.buffer) - TOTAL_OVERHEAD).rtSize >> 1;
+    return changetype<OBJECT>(this.buffer - TOTAL_OVERHEAD).rtSize >> 1;
   }
 
   write(str: string): void {
