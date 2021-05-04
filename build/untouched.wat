@@ -25,22 +25,24 @@
  (global $~lib/ASC_SHRINK_LEVEL i32 (i32.const 0))
  (global $assembly/index/StringSink i32 (i32.const 3))
  (global $~argumentsLength (mut i32) (i32.const 0))
- (global $~lib/rt/__rtti_base i32 (i32.const 512))
- (global $~lib/memory/__data_end i32 (i32.const 548))
- (global $~lib/memory/__stack_pointer (mut i32) (i32.const 16932))
- (global $~lib/memory/__heap_base i32 (i32.const 16932))
+ (global $~lib/rt/__rtti_base i32 (i32.const 624))
+ (global $~lib/memory/__data_end i32 (i32.const 660))
+ (global $~lib/memory/__stack_pointer (mut i32) (i32.const 17044))
+ (global $~lib/memory/__heap_base i32 (i32.const 17044))
  (memory $0 1)
- (data (i32.const 12) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00(\00\00\00A\00l\00l\00o\00c\00a\00t\00i\00o\00n\00 \00t\00o\00o\00 \00l\00a\00r\00g\00e\00\00\00\00\00")
- (data (i32.const 76) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00 \00\00\00~\00l\00i\00b\00/\00r\00t\00/\00i\00t\00c\00m\00s\00.\00t\00s\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data (i32.const 144) "\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data (i32.const 176) "\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data (i32.const 204) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00$\00\00\00I\00n\00d\00e\00x\00 \00o\00u\00t\00 \00o\00f\00 \00r\00a\00n\00g\00e\00\00\00\00\00\00\00\00\00")
- (data (i32.const 268) ",\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\14\00\00\00~\00l\00i\00b\00/\00r\00t\00.\00t\00s\00\00\00\00\00\00\00\00\00")
- (data (i32.const 320) "\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data (i32.const 348) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\1e\00\00\00~\00l\00i\00b\00/\00r\00t\00/\00t\00l\00s\00f\00.\00t\00s\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data (i32.const 412) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\"\00\00\00a\00s\00s\00e\00m\00b\00l\00y\00/\00i\00n\00d\00e\00x\00.\00t\00s\00\00\00\00\00\00\00\00\00\00\00")
- (data (i32.const 476) "\1c\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data (i32.const 512) "\04\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\00\00\00\00\00\00\00\00 \00\00\00\00\00\00\00")
+ (data (i32.const 12) ",\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\1c\00\00\00I\00n\00v\00a\00l\00i\00d\00 \00l\00e\00n\00g\00t\00h\00")
+ (data (i32.const 60) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00&\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00b\00u\00f\00f\00e\00r\00.\00t\00s\00\00\00\00\00\00\00")
+ (data (i32.const 124) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00(\00\00\00A\00l\00l\00o\00c\00a\00t\00i\00o\00n\00 \00t\00o\00o\00 \00l\00a\00r\00g\00e\00\00\00\00\00")
+ (data (i32.const 188) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00 \00\00\00~\00l\00i\00b\00/\00r\00t\00/\00i\00t\00c\00m\00s\00.\00t\00s\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 256) "\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 288) "\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 316) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00$\00\00\00I\00n\00d\00e\00x\00 \00o\00u\00t\00 \00o\00f\00 \00r\00a\00n\00g\00e\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 380) ",\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\14\00\00\00~\00l\00i\00b\00/\00r\00t\00.\00t\00s\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 432) "\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 460) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\1e\00\00\00~\00l\00i\00b\00/\00r\00t\00/\00t\00l\00s\00f\00.\00t\00s\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 524) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\"\00\00\00a\00s\00s\00e\00m\00b\00l\00y\00/\00i\00n\00d\00e\00x\00.\00t\00s\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 588) "\1c\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 624) "\04\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
  (table $0 1 funcref)
  (export "StringSink" (global $assembly/index/StringSink))
  (export "memory" (memory $0))
@@ -123,7 +125,7 @@
     i32.eqz
     if
      i32.const 0
-     i32.const 96
+     i32.const 208
      i32.const 159
      i32.const 16
      call $~lib/builtins/abort
@@ -189,7 +191,7 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 96
+    i32.const 208
     i32.const 127
     i32.const 18
     call $~lib/builtins/abort
@@ -206,7 +208,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 96
+   i32.const 208
    i32.const 131
    i32.const 16
    call $~lib/builtins/abort
@@ -228,8 +230,8 @@
   i32.load
   i32.gt_u
   if
-   i32.const 224
-   i32.const 288
+   i32.const 336
+   i32.const 400
    i32.const 22
    i32.const 28
    call $~lib/builtins/abort
@@ -295,7 +297,7 @@
    i32.eqz
    if (result i32)
     i32.const 0
-    i32.const 96
+    i32.const 208
     i32.const 147
     i32.const 30
     call $~lib/builtins/abort
@@ -421,7 +423,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 368
+   i32.const 480
    i32.const 268
    i32.const 14
    call $~lib/builtins/abort
@@ -441,7 +443,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 368
+   i32.const 480
    i32.const 270
    i32.const 14
    call $~lib/builtins/abort
@@ -504,7 +506,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 368
+   i32.const 480
    i32.const 284
    i32.const 14
    call $~lib/builtins/abort
@@ -636,7 +638,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 368
+   i32.const 480
    i32.const 201
    i32.const 14
    call $~lib/builtins/abort
@@ -653,7 +655,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 368
+   i32.const 480
    i32.const 203
    i32.const 14
    call $~lib/builtins/abort
@@ -733,7 +735,7 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 368
+    i32.const 480
     i32.const 221
     i32.const 16
     call $~lib/builtins/abort
@@ -776,7 +778,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 368
+   i32.const 480
    i32.const 233
    i32.const 14
    call $~lib/builtins/abort
@@ -794,7 +796,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 368
+   i32.const 480
    i32.const 234
    i32.const 14
    call $~lib/builtins/abort
@@ -862,7 +864,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 368
+   i32.const 480
    i32.const 251
    i32.const 14
    call $~lib/builtins/abort
@@ -967,7 +969,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 368
+   i32.const 480
    i32.const 377
    i32.const 14
    call $~lib/builtins/abort
@@ -1010,7 +1012,7 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 368
+    i32.const 480
     i32.const 384
     i32.const 16
     call $~lib/builtins/abort
@@ -1043,7 +1045,7 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 368
+    i32.const 480
     i32.const 397
     i32.const 5
     call $~lib/builtins/abort
@@ -1286,7 +1288,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 368
+   i32.const 480
    i32.const 559
    i32.const 3
    call $~lib/builtins/abort
@@ -1508,7 +1510,7 @@
     i32.eqz
     if
      i32.const 0
-     i32.const 96
+     i32.const 208
      i32.const 228
      i32.const 20
      call $~lib/builtins/abort
@@ -1616,8 +1618,8 @@
   i32.const 1073741820
   i32.gt_u
   if
-   i32.const 32
-   i32.const 368
+   i32.const 144
+   i32.const 480
    i32.const 458
    i32.const 29
    call $~lib/builtins/abort
@@ -1701,7 +1703,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 368
+   i32.const 480
    i32.const 330
    i32.const 14
    call $~lib/builtins/abort
@@ -1766,7 +1768,7 @@
     i32.eqz
     if
      i32.const 0
-     i32.const 368
+     i32.const 480
      i32.const 343
      i32.const 18
      call $~lib/builtins/abort
@@ -1917,7 +1919,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 368
+   i32.const 480
    i32.const 357
    i32.const 14
    call $~lib/builtins/abort
@@ -2026,7 +2028,7 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 368
+    i32.const 480
     i32.const 496
     i32.const 16
     call $~lib/builtins/abort
@@ -2046,7 +2048,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 368
+   i32.const 480
    i32.const 498
    i32.const 14
    call $~lib/builtins/abort
@@ -2323,8 +2325,8 @@
   i32.const 1073741804
   i32.ge_u
   if
-   i32.const 32
-   i32.const 96
+   i32.const 144
+   i32.const 208
    i32.const 260
    i32.const 31
    call $~lib/builtins/abort
@@ -2368,10 +2370,82 @@
   call $~lib/memory/memory.fill
   local.get $3
  )
+ (func $~lib/rt/itcms/__link (param $0 i32) (param $1 i32) (param $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  local.get $1
+  i32.eqz
+  if
+   return
+  end
+  i32.const 1
+  drop
+  local.get $0
+  i32.eqz
+  if
+   i32.const 0
+   i32.const 208
+   i32.const 294
+   i32.const 14
+   call $~lib/builtins/abort
+   unreachable
+  end
+  local.get $1
+  i32.const 20
+  i32.sub
+  local.set $3
+  local.get $3
+  call $~lib/rt/itcms/Object#get:color
+  global.get $~lib/rt/itcms/white
+  i32.eq
+  if
+   local.get $0
+   i32.const 20
+   i32.sub
+   local.set $4
+   local.get $4
+   call $~lib/rt/itcms/Object#get:color
+   local.set $5
+   local.get $5
+   global.get $~lib/rt/itcms/white
+   i32.eqz
+   i32.eq
+   if
+    local.get $2
+    if
+     local.get $4
+     call $~lib/rt/itcms/Object#makeGray
+    else
+     local.get $3
+     call $~lib/rt/itcms/Object#makeGray
+    end
+   else
+    local.get $5
+    i32.const 3
+    i32.eq
+    if (result i32)
+     global.get $~lib/rt/itcms/state
+     i32.const 1
+     i32.eq
+    else
+     i32.const 0
+    end
+    if
+     local.get $3
+     call $~lib/rt/itcms/Object#makeGray
+    end
+   end
+  end
+ )
  (func $assembly/index/StringSink#set:buffer (param $0 i32) (param $1 i32)
   local.get $0
   local.get $1
   i32.store
+  local.get $0
+  local.get $1
+  i32.const 0
+  call $~lib/rt/itcms/__link
  )
  (func $~lib/util/memory/memcpy (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
@@ -3645,59 +3719,11 @@
   i32.const 1
   i32.shr_u
  )
- (func $assembly/index/StringSink#get:capacity (param $0 i32) (result i32)
-  local.get $0
-  i32.load
-  i32.const 20
-  i32.sub
-  i32.load offset=16
-  i32.const 1
-  i32.shr_u
- )
- (func $~lib/rt/itcms/__renew (param $0 i32) (param $1 i32) (result i32)
-  (local $2 i32)
-  (local $3 i32)
-  (local $4 i32)
-  (local $5 i32)
+ (func $~lib/arraybuffer/ArrayBuffer#get:byteLength (param $0 i32) (result i32)
   local.get $0
   i32.const 20
   i32.sub
-  local.set $2
-  local.get $1
-  local.get $2
-  i32.load
-  i32.const 3
-  i32.const -1
-  i32.xor
-  i32.and
-  i32.const 16
-  i32.sub
-  i32.le_u
-  if
-   local.get $2
-   local.get $1
-   call $~lib/rt/itcms/Object#set:rtSize
-   local.get $0
-   return
-  end
-  local.get $1
-  local.get $2
-  i32.load offset=12
-  call $~lib/rt/itcms/__new
-  local.set $3
-  local.get $3
-  local.get $0
-  local.get $1
-  local.tee $4
-  local.get $2
   i32.load offset=16
-  local.tee $5
-  local.get $4
-  local.get $5
-  i32.lt_u
-  select
-  call $~lib/memory/memory.copy
-  local.get $3
  )
  (func $assembly/index/StringSink#write (param $0 i32) (param $1 i32)
   (local $2 i32)
@@ -3706,7 +3732,6 @@
   (local $5 i32)
   (local $6 i32)
   (local $7 i32)
-  (local $8 i32)
   local.get $1
   call $~lib/string/String#get:length
   local.set $2
@@ -3733,6 +3758,8 @@
   call $assembly/index/StringSink#get:capacity
   i32.gt_u
   if
+   local.get $5
+   i32.const 0
    local.get $6
    local.set $7
    i32.const 1
@@ -3743,19 +3770,7 @@
    i32.clz
    i32.sub
    i32.shl
-   local.tee $7
-   i32.const 1073741820
-   local.tee $8
-   local.get $7
-   local.get $8
-   i32.lt_u
-   select
-   local.set $7
-   local.get $5
-   local.get $5
-   i32.load
-   local.get $7
-   call $~lib/rt/itcms/__renew
+   call $~lib/arraybuffer/ArrayBuffer#constructor
    call $assembly/index/StringSink#set:buffer
   end
   local.get $0
@@ -3781,7 +3796,6 @@
   (local $5 i32)
   (local $6 i32)
   (local $7 i32)
-  (local $8 i32)
   local.get $1
   call $~lib/string/String#get:length
   local.set $2
@@ -3810,6 +3824,8 @@
   call $assembly/index/StringSink#get:capacity
   i32.gt_u
   if
+   local.get $5
+   i32.const 0
    local.get $6
    local.set $7
    i32.const 1
@@ -3820,19 +3836,7 @@
    i32.clz
    i32.sub
    i32.shl
-   local.tee $7
-   i32.const 1073741820
-   local.tee $8
-   local.get $7
-   local.get $8
-   i32.lt_u
-   select
-   local.set $7
-   local.get $5
-   local.get $5
-   i32.load
-   local.get $7
-   call $~lib/rt/itcms/__renew
+   call $~lib/arraybuffer/ArrayBuffer#constructor
    call $assembly/index/StringSink#set:buffer
   end
   local.get $0
@@ -3866,7 +3870,6 @@
   (local $4 i32)
   (local $5 i32)
   (local $6 i32)
-  (local $7 i32)
   local.get $1
   i32.const 65535
   i32.gt_s
@@ -3887,6 +3890,8 @@
   call $assembly/index/StringSink#get:capacity
   i32.gt_u
   if
+   local.get $4
+   i32.const 0
    local.get $5
    local.set $6
    i32.const 1
@@ -3897,19 +3902,7 @@
    i32.clz
    i32.sub
    i32.shl
-   local.tee $6
-   i32.const 1073741820
-   local.tee $7
-   local.get $6
-   local.get $7
-   i32.lt_u
-   select
-   local.set $6
-   local.get $4
-   local.get $4
-   i32.load
-   local.get $6
-   call $~lib/rt/itcms/__renew
+   call $~lib/arraybuffer/ArrayBuffer#constructor
    call $assembly/index/StringSink#set:buffer
   end
   local.get $0
@@ -3938,8 +3931,8 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 432
-    i32.const 70
+    i32.const 544
+    i32.const 68
     i32.const 7
     call $~lib/builtins/abort
     unreachable
@@ -3976,10 +3969,9 @@
  )
  (func $assembly/index/StringSink#clear (param $0 i32)
   local.get $0
-  local.get $0
-  i32.load
+  i32.const 0
   global.get $assembly/index/MIN_BUFFER_SIZE
-  call $~lib/rt/itcms/__renew
+  call $~lib/arraybuffer/ArrayBuffer#constructor
   call $assembly/index/StringSink#set:buffer
   local.get $0
   i32.const 0
@@ -3989,8 +3981,7 @@
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  local.get $0
-  i32.load
+  i32.const 0
   local.get $0
   i32.load offset=4
   local.tee $1
@@ -4000,13 +3991,12 @@
   local.get $2
   i32.gt_u
   select
-  call $~lib/rt/itcms/__renew
+  call $~lib/arraybuffer/ArrayBuffer#constructor
   call $assembly/index/StringSink#set:buffer
  )
  (func $assembly/index/StringSink#ensureCapacity (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
-  (local $4 i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -4017,6 +4007,8 @@
   call $assembly/index/StringSink#get:capacity
   i32.gt_u
   if
+   local.get $0
+   i32.const 0
    local.get $2
    local.set $3
    i32.const 1
@@ -4027,32 +4019,34 @@
    i32.clz
    i32.sub
    i32.shl
-   local.tee $3
-   i32.const 1073741820
-   local.tee $4
-   local.get $3
-   local.get $4
-   i32.lt_u
-   select
-   local.set $3
-   local.get $0
-   local.get $0
-   i32.load
-   local.get $3
-   call $~lib/rt/itcms/__renew
+   call $~lib/arraybuffer/ArrayBuffer#constructor
    call $assembly/index/StringSink#set:buffer
   end
  )
  (func $~lib/rt/__visit_globals (param $0 i32)
   (local $1 i32)
-  i32.const 224
+  i32.const 336
   local.get $0
   call $~lib/rt/itcms/__visit
   i32.const 32
   local.get $0
   call $~lib/rt/itcms/__visit
+  i32.const 144
+  local.get $0
+  call $~lib/rt/itcms/__visit
  )
  (func $~lib/arraybuffer/ArrayBufferView~visit (param $0 i32) (param $1 i32)
+  (local $2 i32)
+  local.get $0
+  i32.load
+  local.tee $2
+  if
+   local.get $2
+   local.get $1
+   call $~lib/rt/itcms/__visit
+  end
+ )
+ (func $assembly/index/StringSink~visit (param $0 i32) (param $1 i32)
   (local $2 i32)
   local.get $0
   i32.load
@@ -4084,6 +4078,9 @@
     call $~lib/arraybuffer/ArrayBufferView~visit
     return
    end
+   local.get $0
+   local.get $1
+   call $assembly/index/StringSink~visit
    return
   end
   unreachable
@@ -4101,13 +4098,13 @@
   i32.const 1
   i32.shr_u
   global.set $~lib/rt/itcms/threshold
-  i32.const 144
+  i32.const 256
   call $~lib/rt/itcms/initLazy
   global.set $~lib/rt/itcms/pinSpace
-  i32.const 176
+  i32.const 288
   call $~lib/rt/itcms/initLazy
   global.set $~lib/rt/itcms/toSpace
-  i32.const 320
+  i32.const 432
   call $~lib/rt/itcms/initLazy
   global.set $~lib/rt/itcms/fromSpace
  )
@@ -4116,13 +4113,78 @@
   global.get $~lib/memory/__data_end
   i32.lt_s
   if
-   i32.const 16960
-   i32.const 17008
+   i32.const 17072
+   i32.const 17120
    i32.const 1
    i32.const 1
    call $~lib/builtins/abort
    unreachable
   end
+ )
+ (func $assembly/index/StringSink#get:capacity (param $0 i32) (result i32)
+  (local $1 i32)
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.sub
+  global.set $~lib/memory/__stack_pointer
+  call $~stack_check
+  global.get $~lib/memory/__stack_pointer
+  i32.const 0
+  i32.store
+  local.get $0
+  i32.load
+  local.set $1
+  global.get $~lib/memory/__stack_pointer
+  local.get $1
+  i32.store
+  local.get $1
+  call $~lib/arraybuffer/ArrayBuffer#get:byteLength
+  local.set $1
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.add
+  global.set $~lib/memory/__stack_pointer
+  local.get $1
+ )
+ (func $~lib/arraybuffer/ArrayBuffer#constructor (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i32)
+  (local $3 i32)
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.sub
+  global.set $~lib/memory/__stack_pointer
+  call $~stack_check
+  global.get $~lib/memory/__stack_pointer
+  i32.const 0
+  i32.store
+  local.get $1
+  i32.const 1073741820
+  i32.gt_u
+  if
+   i32.const 32
+   i32.const 80
+   i32.const 49
+   i32.const 43
+   call $~lib/builtins/abort
+   unreachable
+  end
+  global.get $~lib/memory/__stack_pointer
+  local.get $1
+  i32.const 0
+  call $~lib/rt/itcms/__new
+  local.tee $2
+  i32.store
+  local.get $2
+  i32.const 0
+  local.get $1
+  call $~lib/memory/memory.fill
+  local.get $2
+  local.set $3
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.add
+  global.set $~lib/memory/__stack_pointer
+  local.get $3
  )
  (func $assembly/index/StringSink#constructor (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
@@ -4159,6 +4221,7 @@
   i32.shl
   local.set $2
   local.get $0
+  i32.const 0
   local.get $2
   local.tee $3
   global.get $assembly/index/MIN_BUFFER_SIZE
@@ -4167,8 +4230,7 @@
   local.get $4
   i32.gt_u
   select
-  i32.const 1
-  call $~lib/rt/itcms/__new
+  call $~lib/arraybuffer/ArrayBuffer#constructor
   call $assembly/index/StringSink#set:buffer
   local.get $2
   if
@@ -4210,7 +4272,7 @@
   local.get $1
   i32.eqz
   if
-   i32.const 496
+   i32.const 608
    local.set $3
    global.get $~lib/memory/__stack_pointer
    i32.const 4
@@ -4257,7 +4319,7 @@
     unreachable
    end
    global.get $~lib/memory/__stack_pointer
-   i32.const 496
+   i32.const 608
    local.tee $1
    i32.store
   end

@@ -1,22 +1,20 @@
-import { OBJECT, BLOCK_MAXSIZE, TOTAL_OVERHEAD } from "rt/common";
-
-const MIN_BUFFER_SIZE: usize = 64;
+const MIN_BUFFER_SIZE: u32 = 64;
 const NEW_LINE_CHAR: u16 = 0x0A; // \n
 
 // @ts-ignore: decorator
-@inline function nextPowerOf2(n: usize): usize {
+@inline function nextPowerOf2(n: u32): u32 {
   return 1 << 32 - clz(n - 1);
 }
 
 export class StringSink {
-  private buffer: usize;
-  private offset: usize = 0;
+  private buffer: ArrayBuffer;
+  private offset: u32 = 0;
 
   constructor(initial: string = "") {
-    var size = <usize>initial.length << 1;
-    this.buffer = __new(max(size, MIN_BUFFER_SIZE), idof<string>());
+    var size = <u32>initial.length << 1;
+    this.buffer = new ArrayBuffer(<i32>max(size, MIN_BUFFER_SIZE));
     if (size) {
-      memory.copy(this.buffer, changetype<usize>(initial), size);
+      memory.copy(changetype<usize>(this.buffer), changetype<usize>(initial), size);
       this.offset += size;
     }
   }
@@ -26,7 +24,7 @@ export class StringSink {
   }
 
   get capacity(): i32 {
-    return changetype<OBJECT>(this.buffer - TOTAL_OVERHEAD).rtSize >> 1;
+    return this.buffer.byteLength;
   }
 
   write(str: string): void {
@@ -37,7 +35,7 @@ export class StringSink {
     this.ensureCapacity(size);
     let offset = this.offset;
 
-    memory.copy(this.buffer + offset, changetype<usize>(str), size);
+    memory.copy(changetype<usize>(this.buffer) + offset, changetype<usize>(str), size);
     this.offset = offset + size;
   }
 
@@ -49,7 +47,7 @@ export class StringSink {
     this.ensureCapacity(size + 2);
 
     let offset = this.offset;
-    let dest = this.buffer + offset;
+    let dest = changetype<usize>(this.buffer) + offset;
 
     memory.copy(dest, changetype<usize>(str), size);
     store<u16>(dest + size, NEW_LINE_CHAR);
@@ -61,7 +59,7 @@ export class StringSink {
     this.ensureCapacity(2 << hasSur);
 
     let offset = this.offset;
-    let dest = this.buffer + offset;
+    let dest = changetype<usize>(this.buffer) + offset;
 
     if (!hasSur) {
       store<u16>(dest, <u16>code);
@@ -77,27 +75,26 @@ export class StringSink {
   }
 
   clear(): void {
-    this.buffer = __renew(this.buffer, MIN_BUFFER_SIZE);
+    this.buffer = new ArrayBuffer(<i32>MIN_BUFFER_SIZE);
     this.offset = 0;
   }
 
   shrink(): void {
-    this.buffer = __renew(this.buffer, max(this.offset, MIN_BUFFER_SIZE));
+    this.buffer = new ArrayBuffer(<i32>max(this.offset, MIN_BUFFER_SIZE));
   }
 
   toString(): string {
     let size = this.offset;
     if (!size) return "";
     let out = changetype<string>(__new(size, idof<string>()));
-    memory.copy(changetype<usize>(out), this.buffer, size);
+    memory.copy(changetype<usize>(out), changetype<usize>(this.buffer), size);
     return out;
   }
 
-  @inline private ensureCapacity(deltaSize: usize): void {
+  @inline private ensureCapacity(deltaSize: i32): void {
     let requiredSize = this.offset + deltaSize;
-    if (requiredSize > <usize>this.capacity) {
-      let newCapacity = min(nextPowerOf2(requiredSize), BLOCK_MAXSIZE);
-      this.buffer = __renew(this.buffer, newCapacity);
+    if (requiredSize > <u32>this.capacity) {
+      this.buffer = new ArrayBuffer(<i32>nextPowerOf2(requiredSize));
     }
   }
 }
