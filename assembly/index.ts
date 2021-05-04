@@ -1,7 +1,7 @@
 import { OBJECT, BLOCK_MAXSIZE, TOTAL_OVERHEAD } from "rt/common";
 
 const MIN_BUFFER_SIZE: usize = 64;
-const NEW_LINE_CHAR: u16 = 0xA; // \n
+const NEW_LINE_CHAR: u16 = 0x0A; // \n
 
 // @ts-ignore: decorator
 @inline function nextPowerOf2(n: usize): usize {
@@ -70,8 +70,8 @@ export class StringSink {
       assert(<u32>code <= 0x10FFFF);
       code -= 0x10000;
       let hi = (code & 0x03FF) | 0xDC00;
-      let lo = (code >>> 10) | 0xD800;
-      store<u32>(dest, lo | (hi << 16));
+      let lo = code >>> 10 | 0xD800;
+      store<u32>(dest, lo | hi << 16);
       this.offset = offset + 4;
     }
   }
