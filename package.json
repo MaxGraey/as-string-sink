@@ -1,0 +1,18 @@
+{
+  "name": "as-string-sink",
+  "version": "0.0.1",
+  "description": "An efficient dynamically sized string buffer (aka String Builder) for AssemblyScript",
+  "ascMain": "assembly/index.ts",
+  "scripts": {
+    "build:untouched": "asc assembly/index.ts --target debug",
+    "build:optimized": "asc assembly/index.ts --target release",
+    "build": "npm run build:untouched && npm run build:optimized",
+    "test": "node tests"
+  },
+  "dependencies": {
+    "@assemblyscript/loader": "^0.18.31"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.18.31"
+  }
+}
