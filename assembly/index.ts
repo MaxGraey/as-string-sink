@@ -26,7 +26,7 @@ export class StringSink {
   }
 
   get capacity(): i32 {
-    return changetype<OBJECT>(changetype<usize>(this) - TOTAL_OVERHEAD).rtSize >> 1;
+    return changetype<OBJECT>(changetype<usize>(this.buffer) - TOTAL_OVERHEAD).rtSize >> 1;
   }
 
   write(str: string): void {
@@ -36,6 +36,7 @@ export class StringSink {
     let size = len << 1;
     this.ensureCapacity(size);
     let offset = this.offset;
+
     memory.copy(this.buffer + offset, changetype<usize>(str), size);
     this.offset = offset + size;
   }
@@ -46,28 +47,32 @@ export class StringSink {
 
     let size = len << 1;
     this.ensureCapacity(size + 2);
+
     let offset = this.offset;
     let dest = this.buffer + offset;
+
     memory.copy(dest, changetype<usize>(str), size);
     store<u16>(dest + size, NEW_LINE_CHAR);
     this.offset = offset + (size + 2);
   }
 
   writeCodePoint(code: i32): void {
-    assert(<u32>code <= 0x10FFFF);
-
     var hasSur = i32(code > 0xFFFF);
     this.ensureCapacity(2 << hasSur);
-    let dest = this.buffer + this.offset;
+
+    let offset = this.offset;
+    let dest = this.buffer + offset;
+
     if (!hasSur) {
       store<u16>(dest, <u16>code);
-      this.offset += 2;
+      this.offset = offset + 2;
     } else {
+      assert(<u32>code <= 0x10FFFF);
       code -= 0x10000;
       let hi = (code & 0x03FF) | 0xDC00;
       let lo = (code >>> 10) | 0xD800;
       store<u32>(dest, lo | (hi << 16));
-      this.offset += 4;
+      this.offset = offset + 4;
     }
   }
 
