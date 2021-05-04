@@ -90,7 +90,7 @@ export class StringSink {
 
   @inline private ensureCapacity(deltaSize: usize): void {
     let requiredSize = this.offset + deltaSize;
-    if (requiredSize > this.capacity) {
+    if (requiredSize > <usize>this.capacity) {
       let newCapacity = min(nextPowerOf2(requiredSize), BLOCK_MAXSIZE);
       this.buffer = __renew(this.buffer, newCapacity);
     }
