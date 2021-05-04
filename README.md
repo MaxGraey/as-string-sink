@@ -29,11 +29,11 @@ non efficient example:
 
 ```ts
 function toList(arr: string[]): string {
-  let str = "";
+  let res = "";
   for (let i = 0, len = arr.length; i < len; i++) {
-    str += arr[i] + "\n";
+    res += arr[i] + "\n";
   }
-  return str;
+  return res;
 }
 ```
 
@@ -41,11 +41,11 @@ efficient with `StringSink`:
 
 ```ts
 function toList(arr: string[]): string {
-  let str = new StringSink();
+  let res = new StringSink();
   for (let i = 0, len = arr.length; i < len; i++) {
-    str.write(arr[i] + "\n");
+    res.write(arr[i] + "\n");
   }
-  return str.toString();
+  return res.toString();
 }
 ```
 
@@ -53,11 +53,11 @@ even more efficient:
 
 ```ts
 function toList(arr: string[]): string {
-  let str = new StringSink();
+  let res = new StringSink();
   for (let i = 0, len = arr.length; i < len; i++) {
-    str.writeLn(arr[i]);
+    res.writeLn(arr[i]);
   }
-  return str.toString();
+  return res.toString();
 }
 ```
 
