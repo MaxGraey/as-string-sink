@@ -3,6 +3,10 @@ String Sink
 
 An efficient dynamically sized string buffer (aka **String Builder**) for AssemblyScript.
 
+## Current status
+
+_WIP_
+
 ## Interface
 
 ```ts
@@ -60,10 +64,6 @@ function toList(arr: string[]): string {
   return res.toString();
 }
 ```
-
-## Current status
-
-_WIP_
 
 ## TODO
 
