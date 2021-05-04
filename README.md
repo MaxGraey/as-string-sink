@@ -64,3 +64,8 @@ function toList(arr: string[]): string {
 ## Current status
 
 _WIP_
+
+## TODO
+
+- add tests
+- add "start" and "end" optional arguments for write / writeLn
