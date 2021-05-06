@@ -64,4 +64,5 @@ function toList(arr: string[]): string {
 
 ## TODO
 
+- add benchmark
 - add "start" and "end" optional arguments for write / writeLn
