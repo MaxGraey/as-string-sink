@@ -12,7 +12,7 @@ export class StringSink {
 
   constructor(initial: string = "") {
     var size = <u32>initial.length << 1;
-    this.buffer = new ArrayBuffer(<i32>max(size, MIN_BUFFER_SIZE));
+    this.buffer = changetype<ArrayBuffer>(__new(<i32>max(size, MIN_BUFFER_SIZE), idof<ArrayBuffer>()));
     if (size) {
       memory.copy(changetype<usize>(this.buffer), changetype<usize>(initial), size);
       this.offset += size;
@@ -75,14 +75,18 @@ export class StringSink {
   }
 
   clear(): void {
-    this.buffer = new ArrayBuffer(<i32>MIN_BUFFER_SIZE);
     this.offset = 0;
+    this.buffer = changetype<ArrayBuffer>(__renew(
+      changetype<usize>(this.buffer),
+      <i32>MIN_BUFFER_SIZE
+    ));
   }
 
   shrink(): void {
-    let newBuffer = new ArrayBuffer(<i32>max(this.offset, MIN_BUFFER_SIZE));
-    memory.copy(changetype<usize>(newBuffer), changetype<usize>(this.buffer), this.offset);
-    this.buffer = newBuffer;
+    this.buffer = changetype<ArrayBuffer>(__renew(
+      changetype<usize>(this.buffer),
+      <i32>max(this.offset, MIN_BUFFER_SIZE)
+    ));
   }
 
   toString(): string {
@@ -97,9 +101,10 @@ export class StringSink {
     let oldSize = this.offset;
     let newSize = oldSize + deltaSize;
     if (newSize > <u32>this.capacity) {
-      let newBuffer = new ArrayBuffer(<i32>nextPowerOf2(newSize));
-      memory.copy(changetype<usize>(newBuffer), changetype<usize>(this.buffer), oldSize);
-      this.buffer = newBuffer;
+      this.buffer = changetype<ArrayBuffer>(__renew(
+        changetype<usize>(this.buffer),
+        <i32>nextPowerOf2(newSize)
+      ));
     }
   }
 }
