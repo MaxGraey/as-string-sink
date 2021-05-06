@@ -3261,7 +3261,7 @@
   i32.const 2
   local.get $1
   i32.const 65535
-  i32.gt_s
+  i32.gt_u
   local.tee $4
   i32.shl
   i32.add

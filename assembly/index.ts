@@ -55,8 +55,8 @@ export class StringSink {
   }
 
   writeCodePoint(code: i32): void {
-    var hasSur = i32(code > 0xFFFF);
-    this.ensureCapacity(2 << hasSur);
+    var hasSur = <u32>code > 0xFFFF;
+    this.ensureCapacity(2 << i32(hasSur));
 
     let offset = this.offset;
     let dest = changetype<usize>(this.buffer) + offset;
