@@ -80,7 +80,9 @@ export class StringSink {
   }
 
   shrink(): void {
-    this.buffer = new ArrayBuffer(<i32>max(this.offset, MIN_BUFFER_SIZE));
+    let newBuffer = new ArrayBuffer(<i32>max(this.offset, MIN_BUFFER_SIZE));
+    memory.copy(changetype<usize>(newBuffer), changetype<usize>(this.buffer), this.offset);
+    this.buffer = newBuffer;
   }
 
   toString(): string {

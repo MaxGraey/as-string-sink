@@ -3455,39 +3455,69 @@
   global.set $~lib/memory/__stack_pointer
  )
  (func $export:assembly/index/StringSink#shrink (param $0 i32)
+  (local $1 i32)
   global.get $~lib/memory/__stack_pointer
   i32.const 4
   i32.sub
   global.set $~lib/memory/__stack_pointer
-  global.get $~lib/memory/__stack_pointer
-  i32.const 1684
-  i32.lt_s
-  if
-   i32.const 18096
-   i32.const 18144
-   i32.const 1
-   i32.const 1
-   call $~lib/builtins/abort
-   unreachable
+  block $folding-inner0
+   global.get $~lib/memory/__stack_pointer
+   i32.const 1684
+   i32.lt_s
+   br_if $folding-inner0
+   global.get $~lib/memory/__stack_pointer
+   local.tee $1
+   local.get $0
+   i32.store
+   local.get $1
+   i32.const 4
+   i32.sub
+   global.set $~lib/memory/__stack_pointer
+   global.get $~lib/memory/__stack_pointer
+   i32.const 1684
+   i32.lt_s
+   br_if $folding-inner0
+   global.get $~lib/memory/__stack_pointer
+   local.tee $1
+   i32.const 0
+   i32.store
+   local.get $1
+   local.get $0
+   i32.load offset=4
+   local.tee $1
+   i32.const 64
+   local.get $1
+   i32.const 64
+   i32.gt_u
+   select
+   call $~lib/arraybuffer/ArrayBuffer#constructor
+   local.tee $1
+   i32.store
+   local.get $1
+   local.get $0
+   i32.load
+   local.get $0
+   i32.load offset=4
+   call $~lib/memory/memory.copy
+   local.get $0
+   local.get $1
+   call $assembly/index/StringSink#set:buffer
+   global.get $~lib/memory/__stack_pointer
+   i32.const 4
+   i32.add
+   global.set $~lib/memory/__stack_pointer
+   global.get $~lib/memory/__stack_pointer
+   i32.const 4
+   i32.add
+   global.set $~lib/memory/__stack_pointer
+   return
   end
-  global.get $~lib/memory/__stack_pointer
-  local.get $0
-  i32.store
-  local.get $0
-  local.get $0
-  i32.load offset=4
-  local.tee $0
-  i32.const 64
-  local.get $0
-  i32.const 64
-  i32.gt_u
-  select
-  call $~lib/arraybuffer/ArrayBuffer#constructor
-  call $assembly/index/StringSink#set:buffer
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
+  i32.const 18096
+  i32.const 18144
+  i32.const 1
+  i32.const 1
+  call $~lib/builtins/abort
+  unreachable
  )
  (func $export:assembly/index/StringSink#toString (param $0 i32) (result i32)
   (local $1 i32)
