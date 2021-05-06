@@ -8,7 +8,7 @@
     "build:optimized": "asc assembly/index.ts --target release",
     "build": "npm run build:untouched && npm run build:optimized",
     "test": "asp --verbose",
-    "test:ci": "asp --summary"
+    "test:ci": "asp --summary --nologo"
   },
   "dependencies": {
     "@assemblyscript/loader": "^0.18.31"
