@@ -1,7 +1,6 @@
-[![Build Status](https://github.com/MaxGraey/as-string-sink/actions/workflows/test.yml/badge.svg?event=push)](https://github.com/MaxGraey/as-string-sink/actions/workflows/test.yml)
-
 String Sink
 ===
+[![Build Status](https://github.com/MaxGraey/as-string-sink/actions/workflows/test.yml/badge.svg?event=push)](https://github.com/MaxGraey/as-string-sink/actions/workflows/test.yml)
 
 An efficient dynamically sized string buffer (aka **String Builder**) for AssemblyScript.
 
