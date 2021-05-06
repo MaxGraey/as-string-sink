@@ -4,10 +4,6 @@ String Sink
 
 An efficient dynamically sized string buffer (aka **String Builder**) for AssemblyScript.
 
-## Current status
-
-_WIP_
-
 ## Interface
 
 ```ts
