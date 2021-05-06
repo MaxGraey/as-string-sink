@@ -52,11 +52,6 @@
     diff "^5.0.0"
     nearley "^2.20.1"
 
-"@assemblyscript/loader@^0.18.31":
-  version "0.18.31"
-  resolved "https://registry.yarnpkg.com/@assemblyscript/loader/-/loader-0.18.31.tgz#c95bb1765a428e6022a2558653a5e986cb322e7a"
-  integrity sha512-BrPyjojTj7ReaDUiDzfbm0Ei/2OoF2ZimcvxTGSQ7IrVKld/c/7w1DcFJjaLj1eBaartP2TBEzaf7iky+UiDYA==
-
 ansi-styles@^4.1.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-4.3.0.tgz#edd803628ae71c04c85ae7a0906edad34b648937"
