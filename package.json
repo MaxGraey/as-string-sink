@@ -1,7 +1,17 @@
 {
   "name": "as-string-sink",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "An efficient dynamically sized string buffer (aka String Builder) for AssemblyScript",
+  "keywords": [
+    "string",
+    "buffer",
+    "builder",
+    "growing",
+    "dynamic",
+    "wasm",
+    "webassembly",
+    "assemblyscript"
+  ],
   "ascMain": "assembly/index.ts",
   "scripts": {
     "build:untouched": "asc assembly/index.ts --target debug",
@@ -16,5 +26,13 @@
   "devDependencies": {
     "@as-pect/cli": "^6.1.1",
     "assemblyscript": "^0.18.31"
-  }
+  },
+  "files": [
+    "assembly/",
+    "build/",
+    "README.md",
+    "LICENSE",
+    "package.json",
+    "yarn.lock"
+  ]
 }
