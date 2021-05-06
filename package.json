@@ -13,6 +13,7 @@
     "@assemblyscript/loader": "^0.18.31"
   },
   "devDependencies": {
+    "@as-pect/cli": "^6.1.1",
     "assemblyscript": "^0.18.31"
   }
 }
