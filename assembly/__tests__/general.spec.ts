@@ -2,44 +2,76 @@ import { StringSink } from "../index";
 
 describe("general", () => {
   it("default constructor", () => {
-    let empty = new StringSink;
-    expect(empty.length).toBe(0);
-    expect(empty.capacity).toBe(64);
-    expect(empty.toString()).toBe("");
+    let sink = new StringSink;
+    expect(sink.length).toBe(0);
+    expect(sink.capacity).toBe(64); // default
+    expect(sink.toString()).toBe("");
   });
 
   it("initial constructor", () => {
-    let empty = new StringSink("hello");
-    expect(empty.length).toBe(5);
-    expect(empty.capacity).toBe(64);
-    expect(empty.toString()).toBe("hello");
+    let sink = new StringSink("hello");
+    expect(sink.length).toBe(5);
+    expect(sink.capacity).toBe(64); // default
+    expect(sink.toString()).toBe("hello");
   });
 
   it("default constructor with one write", () => {
-    let empty = new StringSink;
-    empty.write("hello");
-    expect(empty.length).toBe(5);
-    expect(empty.capacity).toBe(64);
-    expect(empty.toString()).toBe("hello");
+    let sink = new StringSink;
+    sink.write("hello");
+    expect(sink.length).toBe(5);
+    expect(sink.capacity).toBe(64); // default
+    expect(sink.toString()).toBe("hello");
   });
 
   it("initial constructor with one write", () => {
-    let empty = new StringSink("hello");
-    empty.write(" world!");
-    expect(empty.length).toBe(12);
-    expect(empty.capacity).toBe(64);
-    expect(empty.toString()).toBe("hello world!");
+    let sink = new StringSink("hello");
+    sink.write(" world!");
+    expect(sink.length).toBe(12);
+    expect(sink.capacity).toBe(64); // default
+    expect(sink.toString()).toBe("hello world!");
   });
 
   it("default constructor with 16 writes", () => {
-    let empty = new StringSink;
+    let sink = new StringSink;
     let str = "";
     for (let i = 0; i < 16; i++) {
-      empty.write(" stub ");
+      sink.write(" stub ");
       str += " stub ";
     }
-    expect(empty.length).toBe(6 * 16); // 96
-    // expect(empty.capacity).toBe(256);
-    expect(empty.toString()).toBe(str);
+    expect(sink.length).toBe(6 * 16);    // 96
+    expect(sink.capacity).toBe(128 * 2); // nextPOT(96) -> 128
+    expect(sink.toString()).toBe(str);
+  });
+
+  it("default constructor with 2 writeLn", () => {
+    let sink = new StringSink;
+    sink.writeLn("hello");
+    sink.writeLn("world");
+    expect(sink.length).toBe(12);
+    expect(sink.capacity).toBe(64); // default
+    expect(sink.toString()).toBe("hello\nworld\n");
+  });
+
+  it("default constructor with several writeCodePoint", () => {
+    let sink = new StringSink;
+    sink.writeCodePoint("f".charCodeAt(0));
+    sink.writeCodePoint("i".charCodeAt(0));
+    sink.writeCodePoint("r".charCodeAt(0));
+    sink.writeCodePoint("e".charCodeAt(0));
+    sink.writeCodePoint(":".charCodeAt(0));
+    sink.writeCodePoint("🔥".codePointAt(0));
+    expect(sink.toString()).toBe("fire:🔥");
+  });
+
+  it("inial constructor with several writeCodePoint", () => {
+    let spaces = " ".repeat(32);
+    let sink = new StringSink(spaces);
+    sink.writeCodePoint("f".charCodeAt(0));
+    sink.writeCodePoint("i".charCodeAt(0));
+    sink.writeCodePoint("r".charCodeAt(0));
+    sink.writeCodePoint("e".charCodeAt(0));
+    sink.writeCodePoint(":".charCodeAt(0));
+    sink.writeCodePoint("🔥".codePointAt(0));
+    expect(sink.toString()).toBe(spaces + "fire:🔥");
   });
 });

@@ -3732,12 +3732,25 @@
   (local $5 i32)
   (local $6 i32)
   (local $7 i32)
+  (local $8 i32)
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.sub
+  global.set $~lib/memory/__stack_pointer
+  call $~stack_check
+  global.get $~lib/memory/__stack_pointer
+  i32.const 0
+  i32.store
   local.get $1
   call $~lib/string/String#get:length
   local.set $2
   local.get $2
   i32.eqz
   if
+   global.get $~lib/memory/__stack_pointer
+   i32.const 4
+   i32.add
+   global.set $~lib/memory/__stack_pointer
    return
   end
   local.get $2
@@ -3750,44 +3763,59 @@
   local.set $4
   local.get $5
   i32.load offset=4
-  local.get $4
-  i32.add
   local.set $6
   local.get $6
+  local.get $4
+  i32.add
+  local.set $7
+  local.get $7
   local.get $5
   call $assembly/index/StringSink#get:capacity
   i32.gt_u
   if
-   local.get $5
+   global.get $~lib/memory/__stack_pointer
    i32.const 0
-   local.get $6
-   local.set $7
+   local.get $7
+   local.set $8
    i32.const 1
    i32.const 32
-   local.get $7
+   local.get $8
    i32.const 1
    i32.sub
    i32.clz
    i32.sub
    i32.shl
    call $~lib/arraybuffer/ArrayBuffer#constructor
+   local.tee $8
+   i32.store
+   local.get $8
+   local.get $5
+   i32.load
+   local.get $6
+   call $~lib/memory/memory.copy
+   local.get $5
+   local.get $8
    call $assembly/index/StringSink#set:buffer
   end
   local.get $0
   i32.load offset=4
-  local.set $6
+  local.set $7
   local.get $0
   i32.load
-  local.get $6
+  local.get $7
   i32.add
   local.get $1
   local.get $3
   call $~lib/memory/memory.copy
   local.get $0
-  local.get $6
+  local.get $7
   local.get $3
   i32.add
   call $assembly/index/StringSink#set:offset
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.add
+  global.set $~lib/memory/__stack_pointer
  )
  (func $assembly/index/StringSink#writeLn (param $0 i32) (param $1 i32)
   (local $2 i32)
@@ -3796,12 +3824,25 @@
   (local $5 i32)
   (local $6 i32)
   (local $7 i32)
+  (local $8 i32)
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.sub
+  global.set $~lib/memory/__stack_pointer
+  call $~stack_check
+  global.get $~lib/memory/__stack_pointer
+  i32.const 0
+  i32.store
   local.get $1
   call $~lib/string/String#get:length
   local.set $2
   local.get $2
   i32.eqz
   if
+   global.get $~lib/memory/__stack_pointer
+   i32.const 4
+   i32.add
+   global.set $~lib/memory/__stack_pointer
    return
   end
   local.get $2
@@ -3816,53 +3857,68 @@
   local.set $4
   local.get $5
   i32.load offset=4
-  local.get $4
-  i32.add
   local.set $6
   local.get $6
+  local.get $4
+  i32.add
+  local.set $7
+  local.get $7
   local.get $5
   call $assembly/index/StringSink#get:capacity
   i32.gt_u
   if
-   local.get $5
+   global.get $~lib/memory/__stack_pointer
    i32.const 0
-   local.get $6
-   local.set $7
+   local.get $7
+   local.set $8
    i32.const 1
    i32.const 32
-   local.get $7
+   local.get $8
    i32.const 1
    i32.sub
    i32.clz
    i32.sub
    i32.shl
    call $~lib/arraybuffer/ArrayBuffer#constructor
+   local.tee $8
+   i32.store
+   local.get $8
+   local.get $5
+   i32.load
+   local.get $6
+   call $~lib/memory/memory.copy
+   local.get $5
+   local.get $8
    call $assembly/index/StringSink#set:buffer
   end
   local.get $0
   i32.load offset=4
-  local.set $6
+  local.set $7
   local.get $0
   i32.load
-  local.get $6
+  local.get $7
   i32.add
-  local.set $5
-  local.get $5
+  local.set $6
+  local.get $6
   local.get $1
   local.get $3
   call $~lib/memory/memory.copy
-  local.get $5
+  local.get $6
   local.get $3
   i32.add
   global.get $assembly/index/NEW_LINE_CHAR
   i32.store16
   local.get $0
-  local.get $6
+  local.get $7
   local.get $3
   i32.const 2
   i32.add
   i32.add
   call $assembly/index/StringSink#set:offset
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.add
+  global.set $~lib/memory/__stack_pointer
  )
  (func $assembly/index/StringSink#writeCodePoint (param $0 i32) (param $1 i32)
   (local $2 i32)
@@ -3870,6 +3926,15 @@
   (local $4 i32)
   (local $5 i32)
   (local $6 i32)
+  (local $7 i32)
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.sub
+  global.set $~lib/memory/__stack_pointer
+  call $~stack_check
+  global.get $~lib/memory/__stack_pointer
+  i32.const 0
+  i32.store
   local.get $1
   i32.const 65535
   i32.gt_u
@@ -3882,45 +3947,56 @@
   local.set $3
   local.get $4
   i32.load offset=4
-  local.get $3
-  i32.add
   local.set $5
   local.get $5
+  local.get $3
+  i32.add
+  local.set $6
+  local.get $6
   local.get $4
   call $assembly/index/StringSink#get:capacity
   i32.gt_u
   if
-   local.get $4
+   global.get $~lib/memory/__stack_pointer
    i32.const 0
-   local.get $5
-   local.set $6
+   local.get $6
+   local.set $7
    i32.const 1
    i32.const 32
-   local.get $6
+   local.get $7
    i32.const 1
    i32.sub
    i32.clz
    i32.sub
    i32.shl
    call $~lib/arraybuffer/ArrayBuffer#constructor
+   local.tee $7
+   i32.store
+   local.get $7
+   local.get $4
+   i32.load
+   local.get $5
+   call $~lib/memory/memory.copy
+   local.get $4
+   local.get $7
    call $assembly/index/StringSink#set:buffer
   end
   local.get $0
   i32.load offset=4
-  local.set $5
+  local.set $6
   local.get $0
   i32.load
-  local.get $5
+  local.get $6
   i32.add
-  local.set $4
+  local.set $5
   local.get $2
   i32.eqz
   if
-   local.get $4
+   local.get $5
    local.get $1
    i32.store16
    local.get $0
-   local.get $5
+   local.get $6
    i32.const 2
    i32.add
    call $assembly/index/StringSink#set:offset
@@ -3946,26 +4022,30 @@
    i32.and
    i32.const 56320
    i32.or
-   local.set $3
+   local.set $4
    local.get $1
    i32.const 10
    i32.shr_u
    i32.const 55296
    i32.or
-   local.set $6
-   local.get $4
-   local.get $6
+   local.set $3
+   local.get $5
    local.get $3
+   local.get $4
    i32.const 16
    i32.shl
    i32.or
    i32.store
    local.get $0
-   local.get $5
+   local.get $6
    i32.const 4
    i32.add
    call $assembly/index/StringSink#set:offset
   end
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.add
+  global.set $~lib/memory/__stack_pointer
  )
  (func $assembly/index/StringSink#clear (param $0 i32)
   local.get $0
@@ -3997,31 +4077,55 @@
  (func $assembly/index/StringSink#ensureCapacity (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
+  (local $4 i32)
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.sub
+  global.set $~lib/memory/__stack_pointer
+  call $~stack_check
+  global.get $~lib/memory/__stack_pointer
+  i32.const 0
+  i32.store
   local.get $0
   i32.load offset=4
-  local.get $1
-  i32.add
   local.set $2
   local.get $2
+  local.get $1
+  i32.add
+  local.set $3
+  local.get $3
   local.get $0
   call $assembly/index/StringSink#get:capacity
   i32.gt_u
   if
-   local.get $0
+   global.get $~lib/memory/__stack_pointer
    i32.const 0
-   local.get $2
-   local.set $3
+   local.get $3
+   local.set $4
    i32.const 1
    i32.const 32
-   local.get $3
+   local.get $4
    i32.const 1
    i32.sub
    i32.clz
    i32.sub
    i32.shl
    call $~lib/arraybuffer/ArrayBuffer#constructor
+   local.tee $4
+   i32.store
+   local.get $4
+   local.get $0
+   i32.load
+   local.get $2
+   call $~lib/memory/memory.copy
+   local.get $0
+   local.get $4
    call $assembly/index/StringSink#set:buffer
   end
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.add
+  global.set $~lib/memory/__stack_pointer
  )
  (func $~lib/rt/__visit_globals (param $0 i32)
   (local $1 i32)
