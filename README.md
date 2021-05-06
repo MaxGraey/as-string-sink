@@ -68,5 +68,4 @@ function toList(arr: string[]): string {
 
 ## TODO
 
-- add tests
 - add "start" and "end" optional arguments for write / writeLn
