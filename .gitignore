@@ -1,6 +1,8 @@
 node_modules/
 build/*.wasm
 build/*.wasm.map
+assembly/__tests__/*.wat
+assembly/__tests__/*.map
 .history
 .vscode
 .idea
