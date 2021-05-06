@@ -92,9 +92,12 @@ export class StringSink {
   }
 
   @inline private ensureCapacity(deltaSize: i32): void {
-    let requiredSize = this.offset + deltaSize;
-    if (requiredSize > <u32>this.capacity) {
-      this.buffer = new ArrayBuffer(<i32>nextPowerOf2(requiredSize));
+    let oldSize = this.offset;
+    let newSize = oldSize + deltaSize;
+    if (newSize > <u32>this.capacity) {
+      let newBuffer = new ArrayBuffer(<i32>nextPowerOf2(newSize));
+      memory.copy(changetype<usize>(newBuffer), changetype<usize>(this.buffer), oldSize);
+      this.buffer = newBuffer;
     }
   }
 }
