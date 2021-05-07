@@ -1,7 +1,6 @@
 node_modules/
-build/*.wasm
-build/*.wasm.map
-benchmark/build
+build/
+benchmark/build/
 assembly/__tests__/*.wat
 assembly/__tests__/*.map
 .history

@@ -23,7 +23,7 @@ function runBench(fn, len, name) {
   console.log(`${name}: ${dt < 1 ? dt.toPrecision(2) : dt.toFixed(2)} ms`);
 }
 
-WebAssembly.instantiate(fs.readFileSync(path.join(__dirname, "build/optimized.wasm")), {
+WebAssembly.instantiate(fs.readFileSync(path.join(__dirname, "build/bench.wasm")), {
   env: {
     abort(_msg, _file, line, column) {
       console.error("abort called at benchmark/index.ts:" + line + ":" + column);
