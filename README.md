@@ -13,8 +13,8 @@ class StringSink {
   get length(): i32;
   get capacity(): i32;
 
-  write(str: string): void;
-  writeLn(str: string): void;
+  write(src: string): void;
+  writeLn(src: string): void;
   writeCodePoint(code: i32): void;
 
   shrink(): void;
