@@ -34,9 +34,18 @@ export class StringSink {
     return this.buffer.byteLength;
   }
 
-  write(src: string): void {
+  write(src: string, start: i32 = 0, end: i32 = i32.MAX_VALUE): void {
     let len = src.length as u32;
     if (!len) return;
+
+    if (start != 0 && end != i32.MAX_VALUE) {
+      let from: i32;
+      from  = min<i32>(max(start, 0), len);
+      end   = min<i32>(max(end,   0), len);
+      start = min<i32>(from, end);
+      end   = max<i32>(from, end);
+      len   = end - start;
+    }
 
     let size = len << 1;
     this.ensureCapacity(size);
@@ -44,15 +53,24 @@ export class StringSink {
 
     memory.copy(
       changetype<usize>(this.buffer) + offset,
-      changetype<usize>(src),
+      changetype<usize>(src) + (<usize>start << 1),
       size
     );
     this.offset = offset + size;
   }
 
-  writeLn(src: string): void {
+  writeLn(src: string, start: i32 = 0, end: i32 = i32.MAX_VALUE): void {
     let len = src.length as u32;
     if (!len) return;
+
+    if (start != 0 && end != i32.MAX_VALUE) {
+      let from: i32;
+      from  = min<i32>(max(start, 0), len);
+      end   = min<i32>(max(end,   0), len);
+      start = min<i32>(from, end);
+      end   = max<i32>(from, end);
+      len   = end - start;
+    }
 
     let size = len << 1;
     this.ensureCapacity(size + 2);
@@ -60,7 +78,7 @@ export class StringSink {
     let offset = this.offset;
     let dest = changetype<usize>(this.buffer) + offset;
 
-    memory.copy(dest, changetype<usize>(src), size);
+    memory.copy(dest, changetype<usize>(src) + (<usize>start << 1), size);
     store<u16>(dest + size, NEW_LINE_CHAR);
     this.offset = offset + (size + 2);
   }

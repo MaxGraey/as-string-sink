@@ -14,8 +14,8 @@ class StringSink {
   get length(): i32;
   get capacity(): i32;
 
-  write(src: string): void;
-  writeLn(src: string): void;
+  write(src: string, start?: i32, end?: i32): void;
+  writeLn(src: string, start?: i32, end?: i32): void;
   writeCodePoint(code: i32): void;
 
   shrink(): void;
@@ -49,7 +49,7 @@ String += AS:  17867.35 ms
 StringSink AS: 2.06 ms
 ```
 
-## Usage
+## Usage 1. String accumulation (+=)
 
 non efficient example:
 
@@ -87,6 +87,28 @@ function toList(arr: string[]): string {
 }
 ```
 
-## TODO
+## Usage 2. String accumulation (+=) only part of string
 
-- add "start" and "end" optional arguments for write / writeLn
+non efficient example:
+
+```ts
+function toListSliced(arr: string[]): string {
+  let res = "";
+  for (let i = 0, len = arr.length; i < len; i++) {
+    res += arr[i].substring(1, 3);
+  }
+  return res;
+}
+```
+
+more efficient with `StringSink`:
+
+```ts
+function toListSliced(arr: string[]): string {
+  let res = new StringSink();
+  for (let i = 0, len = arr.length; i < len; i++) {
+    res.writeLn(arr[i], 1, 3);
+  }
+  return res.toString();
+}
+```

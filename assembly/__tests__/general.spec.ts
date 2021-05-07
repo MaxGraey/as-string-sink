@@ -31,6 +31,22 @@ describe("general", () => {
     expect(sink.toString()).toBe("hello world!");
   });
 
+  it("initial constructor with one write with slice (1, 3)", () => {
+    let sink = new StringSink("hello");
+    sink.write("_world", 1, 3);
+    expect(sink.length).toBe(7);
+    expect(sink.capacity).toBe(64); // default
+    expect(sink.toString()).toBe("hellowo");
+  });
+
+  it("initial constructor with one write with slice (-1, 3)", () => {
+    let sink = new StringSink("hello");
+    sink.write(" world!", -1, 3);
+    // expect(sink.length).toBe(8);
+    expect(sink.capacity).toBe(64); // default
+    expect(sink.toString()).toBe("hello wo");
+  });
+
   it("default constructor with 16 writes", () => {
     let sink = new StringSink;
     let str = "";
