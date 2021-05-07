@@ -28,7 +28,6 @@
   },
   "files": [
     "assembly/",
-    "build/",
     "README.md",
     "LICENSE",
     "package.json",
