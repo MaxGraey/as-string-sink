@@ -35,7 +35,7 @@ export class StringSink {
   }
 
   write(src: string): void {
-    let len = src.length;
+    let len = src.length as u32;
     if (!len) return;
 
     let size = len << 1;
@@ -51,7 +51,7 @@ export class StringSink {
   }
 
   writeLn(src: string): void {
-    let len = src.length;
+    let len = src.length as u32;
     if (!len) return;
 
     let size = len << 1;
@@ -108,7 +108,7 @@ export class StringSink {
     return out;
   }
 
-  @inline private ensureCapacity(deltaSize: i32): void {
+  @inline private ensureCapacity(deltaSize: u32): void {
     let oldSize = this.offset;
     let newSize = oldSize + deltaSize;
     if (newSize > <u32>this.capacity) {
