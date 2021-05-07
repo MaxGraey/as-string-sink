@@ -18,7 +18,7 @@
     "build:optimized": "asc assembly/index.ts --target release",
     "build:bench":     "asc benchmark/index.ts -o benchmark/build/optimized.wasm -b benchmark/build/optimized.wasm -O3 --noAssert",
     "build": "npm run build:untouched && npm run build:optimized",
-    "bench": "node benchmark/run.js",
+    "bench": "npm run build:bench && node benchmark/run.js",
     "test": "asp --verbose",
     "test:ci": "asp --summary --nologo"
   },

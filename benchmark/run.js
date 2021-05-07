@@ -20,7 +20,7 @@ function runBench(fn, len, name) {
   dt = performance.now();
   fn(len);
   dt = performance.now() - dt;
-  console.log(`${name}: ${dt} ms`);
+  console.log(`${name}: ${dt < 1 ? dt.toPrecision(2) : dt.toFixed(2)} ms`);
 }
 
 WebAssembly.instantiate(fs.readFileSync(path.join(__dirname, "build/optimized.wasm")), {
