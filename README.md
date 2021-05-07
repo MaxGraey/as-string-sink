@@ -107,7 +107,7 @@ more efficient with `StringSink`:
 function toListSliced(arr: string[]): string {
   let res = new StringSink();
   for (let i = 0, len = arr.length; i < len; i++) {
-    res.writeLn(arr[i], 1, 3);
+    res.write(arr[i], 1, 3);
   }
   return res.toString();
 }
