@@ -35,13 +35,16 @@ export class StringSink {
   }
 
   write(src: string, start: i32 = 0, end: i32 = i32.MAX_VALUE): void {
-    let len = src.length as u32, from: i32;
+    let len = src.length as u32;
 
-    from  = min<i32>(max(start, 0), len);
-    end   = min<i32>(max(end,   0), len);
-    start = min<i32>(from, end);
-    end   = max<i32>(from, end);
-    len   = end - start;
+    if (start != 0 || end != i32.MAX_VALUE) {
+      let from: i32;
+      from  = min<i32>(max(start, 0), len);
+      end   = min<i32>(max(end,   0), len);
+      start = min<i32>(from, end);
+      end   = max<i32>(from, end);
+      len   = end - start;
+    }
 
     if (!len) return;
 
@@ -58,13 +61,16 @@ export class StringSink {
   }
 
   writeLn(src: string, start: i32 = 0, end: i32 = i32.MAX_VALUE): void {
-    let len = src.length as u32, from: i32;
+    let len = src.length as u32;
 
-    from  = min<i32>(max(start, 0), len);
-    end   = min<i32>(max(end,   0), len);
-    start = min<i32>(from, end);
-    end   = max<i32>(from, end);
-    len   = end - start;
+    if (start != 0 || end != i32.MAX_VALUE) {
+      let from: i32;
+      from  = min<i32>(max(start, 0), len);
+      end   = min<i32>(max(end,   0), len);
+      start = min<i32>(from, end);
+      end   = max<i32>(from, end);
+      len   = end - start;
+    }
 
     if (!len) return;
 
