@@ -106,4 +106,35 @@ describe("general", () => {
     sink.writeCodePoint("🔥".codePointAt(0));
     expect(sink.toString()).toBe(spaces + "fire:🔥");
   });
+
+  it("clear for less than 64 bytes capacity", () => {
+    let sink = new StringSink("hello");
+    sink.clear();
+    expect(sink.length).toBe(0);
+    expect(sink.capacity).toBe(64);
+  });
+
+  it("clear for more than 64 bytes capacity", () => {
+    let sink = new StringSink(" ".repeat(64));
+    sink.clear();
+    expect(sink.length).toBe(0);
+    expect(sink.capacity).toBe(64);
+  });
+
+  it("shrink for less than 64 bytes capacity", () => {
+    let sink = new StringSink("hello");
+    sink.shrink();
+    expect(sink.length).toBe(5);
+    expect(sink.capacity).toBe(64);
+  });
+
+  it("shrink for more than 64 bytes capacity", () => {
+    let sink = new StringSink(" ".repeat(33));
+    expect(sink.length).toBe(33);
+    expect(sink.capacity).toBe(33 * 2);
+
+    sink.shrink();
+    expect(sink.length).toBe(33);
+    expect(sink.capacity).toBe(33 * 2);
+  });
 });
