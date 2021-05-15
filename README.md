@@ -27,7 +27,7 @@ class StringSink {
 
 ## Benchmark Results
 
-StringSink can be up to 8700 times faster than naive string concatenation!
+StringSink can be up to 8700 times faster than native string concatenation!
 
 ```json
 100 strings:
