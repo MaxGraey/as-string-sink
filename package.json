@@ -13,10 +13,11 @@
     "assemblyscript"
   ],
   "ascMain": "assembly/index.ts",
+  "main": "assembly/index.ts",
   "scripts": {
     "build:untouched": "asc assembly/index.ts --target debug",
     "build:optimized": "asc assembly/index.ts --target release",
-    "build:bench":     "asc benchmark/index.ts -o benchmark/build/bench.wasm -b benchmark/build/bench.wasm -O3 --noAssert",
+    "build:bench": "asc benchmark/index.ts -o benchmark/build/bench.wasm -b benchmark/build/bench.wasm -O3 --noAssert",
     "build": "npm run build:untouched && npm run build:optimized",
     "bench": "npm run build:bench && node benchmark/run.js",
     "test": "asp --verbose",
