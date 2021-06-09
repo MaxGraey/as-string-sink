@@ -32,21 +32,21 @@ StringSink can be up to 8700 times faster than native string concatenation!
 ```json
 100 strings:
 ------------
-String += JS:  0.016 ms
-String += AS:  0.018 ms
-StringSink AS: 0.0033 ms
+String += JS:  0.013 ms
+String += AS:  0.017 ms
+StringSink AS: 0.0034 ms
 
 50,000 strings:
 ---------------
-String += JS:  2.86 ms
-String += AS:  1133.24 ms
-StringSink AS: 0.57 ms
+String += JS:  3.89 ms
+String += AS:  1219.44 ms
+StringSink AS: 0.54 ms
 
 200,000 strings:
 ----------------
-String += JS:  11.44 ms
-String += AS:  17867.35 ms
-StringSink AS: 2.06 ms
+String += JS:  11.29 ms
+String += AS:  18360.15 ms
+StringSink AS: 2.28 ms
 ```
 
 ## Usage 1. String accumulation (+=)
