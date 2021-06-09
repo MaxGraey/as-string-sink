@@ -16,7 +16,7 @@
   "scripts": {
     "build:untouched": "asc assembly/index.ts --target debug",
     "build:optimized": "asc assembly/index.ts --target release",
-    "build:bench":     "asc benchmark/index.ts -o benchmark/build/bench.wasm -b benchmark/build/bench.wasm -O3 --noAssert",
+    "build:bench": "asc benchmark/index.ts -o benchmark/build/bench.wasm -b benchmark/build/bench.wasm -O3 --noAssert",
     "build": "npm run build:untouched && npm run build:optimized",
     "bench": "npm run build:bench && node benchmark/run.js",
     "test": "asp --verbose",
@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@as-pect/cli": "^6.1.1",
-    "assemblyscript": "^0.18.31"
+    "assemblyscript": "^0.19.2"
   },
   "files": [
     "assembly/",

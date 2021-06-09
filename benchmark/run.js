@@ -12,7 +12,7 @@ function benchStringAccumJS(len) {
 
 function runBench(fn, len, name) {
   // warmup
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 150; i++) {
     fn(100);
   }
 
