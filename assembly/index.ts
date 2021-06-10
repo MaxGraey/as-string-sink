@@ -10,10 +10,14 @@ export class StringSink {
   private buffer: ArrayBuffer;
   private offset: u32 = 0;
 
-  constructor(initial: string = "") {
+  static withCapacity(capacity: i32): StringSink {
+    return new StringSink("", capacity);
+  }
+
+  constructor(initial: string = "", capacity: i32 = MIN_BUFFER_SIZE) {
     var size = <u32>initial.length << 1;
     this.buffer = changetype<ArrayBuffer>(__new(
-      <i32>max(size, MIN_BUFFER_SIZE),
+      <i32>max(size, max<i32>(MIN_BUFFER_SIZE, capacity)),
       idof<ArrayBuffer>())
     );
     if (size) {

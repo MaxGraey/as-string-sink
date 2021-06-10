@@ -9,19 +9,21 @@ An efficient dynamically sized string buffer (aka **String Builder**) for Assemb
 
 ```ts
 class StringSink {
-  constructor(initial: string = "");
+  static withCapacity(capacity: i32)
 
-  get length(): i32;
-  get capacity(): i32;
+  constructor(initial: string = "", capacity: i32 = 64)
 
-  write(src: string, start?: i32, end?: i32): void;
-  writeLn(src: string, start?: i32, end?: i32): void;
-  writeCodePoint(code: i32): void;
+  get length(): i32
+  get capacity(): i32
 
-  shrink(): void;
-  clear(): void;
+  write(src: string, start?: i32, end?: i32): void
+  writeLn(src: string, start?: i32, end?: i32): void
+  writeCodePoint(code: i32): void
 
-  toString(): string;
+  shrink(): void
+  clear(): void
+
+  toString(): string
 }
 ```
 
