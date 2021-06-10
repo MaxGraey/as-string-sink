@@ -39,11 +39,11 @@ export class StringSink {
 
     if (start != 0 || end != i32.MAX_VALUE) {
       let from: i32;
-      from  = min<i32>(max(start, 0), len);
-      end   = min<i32>(max(end,   0), len);
+      from = min<i32>(max(start, 0), len);
+      end = min<i32>(max(end, 0), len);
       start = min<i32>(from, end);
-      end   = max<i32>(from, end);
-      len   = end - start;
+      end = max<i32>(from, end);
+      len = end - start;
     }
 
     if (!len) return;
@@ -65,11 +65,11 @@ export class StringSink {
 
     if (start != 0 || end != i32.MAX_VALUE) {
       let from: i32;
-      from  = min<i32>(max(start, 0), len);
-      end   = min<i32>(max(end,   0), len);
+      from = min<i32>(max(start, 0), len);
+      end = min<i32>(max(end, 0), len);
       start = min<i32>(from, end);
-      end   = max<i32>(from, end);
-      len   = end - start;
+      end = max<i32>(from, end);
+      len = end - start;
     }
 
     if (!len) return;
@@ -126,6 +126,56 @@ export class StringSink {
     let out = changetype<string>(__new(size, idof<string>()));
     memory.copy(changetype<usize>(out), changetype<usize>(this.buffer), size);
     return out;
+  }
+
+  toArrayBuffer(): ArrayBuffer {
+    const size = this.offset;
+    if (!size) return new ArrayBuffer(0);
+    const out = new ArrayBuffer(size);
+    memory.copy(changetype<usize>(out), changetype<usize>(this.buffer), size);
+    return out;
+  }
+
+  toUint8Array(): Uint8Array {
+    const size = this.offset;
+    if (!size) return new Uint8Array(0);
+    const out = new Uint8Array(size);
+    memory.copy(changetype<usize>(out.dataStart), changetype<usize>(this.buffer), size);
+    return out;
+  }
+
+  toStaticArray(): StaticArray<u8> {
+    const size = this.offset;
+    if (!size) return new StaticArray<u8>(0);
+    const out = new StaticArray<u8>(size);
+    memory.copy(changetype<usize>(out), changetype<usize>(this.buffer), size);
+    return out;
+  }
+
+  toArray(): Array<u8> {
+    const size = this.offset;
+    if (!size) return new Array<u8>(0);
+    const out = new Array<u8>(size);
+    memory.copy(changetype<usize>(out.dataStart), changetype<usize>(this.buffer), size);
+    return out;
+  }
+
+  // @ts-ignore
+  to<A>(): A {
+    if (idof<A>() == idof<ArrayBuffer>()) {
+      // @ts-ignore
+      return this.toArrayBuffer();
+    }
+    else if (idof<A>() == idof<Uint8Array>()) {
+      // @ts-ignore
+      return this.toUint8Array();
+    } else if (idof<A>() == idof<StaticArray<u8>>()) {
+      // @ts-ignore
+      return this.toStaticArray();
+    } else {
+      // @ts-ignore
+      return this.toArray();
+    }
   }
 
   @inline private ensureCapacity(deltaSize: u32): void {
