@@ -160,6 +160,7 @@ export class StringSink {
     return out;
   }
 
+  @inline
   // @ts-ignore
   to<A>(): A {
     if (idof<A>() == idof<ArrayBuffer>()) {
