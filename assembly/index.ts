@@ -132,7 +132,7 @@ export class StringSink {
     return out;
   }
 
-  @inline private ensureCapacity(deltaSize: u32): void {
+  @inline protected ensureCapacity(deltaSize: u32): void {
     let oldSize = this.offset;
     let newSize = oldSize + deltaSize;
     if (newSize > <u32>this.capacity) {
