@@ -32,21 +32,30 @@ StringSink can be up to 8700 times faster than native string concatenation!
 ```json
 100 strings:
 ------------
-String += JS:  0.013 ms
-String += AS:  0.017 ms
-StringSink AS: 0.0034 ms
+benchStringAccum: String += JS: 0.013 ms
+benchStringAccum: String += AS: 0.021 ms
+benchStringSinkAccum: StringSink AS: 0.0056 ms
+benchStringSinkAccumSplit: StringSink AS: 0.0088 ms
+benchStringSinkAccumUnsafe: StringSink AS Unsafe: 0.0064 ms
+benchStringSinkAccumUnsafe2: StringSink AS Unsafe: 0.018 ms
 
 50,000 strings:
 ---------------
-String += JS:  3.89 ms
-String += AS:  1219.44 ms
-StringSink AS: 0.54 ms
+benchStringAccum: String += JS: 0.46 ms
+benchStringAccum: String += AS: 1397.41 ms
+benchStringSinkAccum: StringSink AS: 0.87 ms
+benchStringSinkAccumSplit: StringSink AS: 2.62 ms
+benchStringSinkAccumUnsafe: StringSink AS Unsafe: 0.74 ms
+benchStringSinkAccumUnsafe2: StringSink AS Unsafe: 0.52 ms
 
 200,000 strings:
 ----------------
-String += JS:  11.29 ms
-String += AS:  18360.15 ms
-StringSink AS: 2.28 ms
+benchStringAccum: String += JS: 16.45 ms
+benchStringAccum: String += AS: 34270.55 ms
+benchStringSinkAccum: StringSink AS: 5.25 ms
+benchStringSinkAccumSplit: StringSink AS: 11.02 ms
+benchStringSinkAccumUnsafe: StringSink AS Unsafe: 3.15 ms
+benchStringSinkAccumUnsafe2: StringSink AS Unsafe: 2.07 ms
 ```
 
 ## Usage 1. String accumulation (+=)
