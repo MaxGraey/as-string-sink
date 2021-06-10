@@ -16,6 +16,15 @@ export function benchStringSinkAccum(len: i32): i32 {
   return sink.toString().length;
 }
 
+export function benchStringSinkAccum2(len: i32): i32 {
+  let sink = new StringSink;
+  sink.ensureCapacity(len * 4);
+  for (let i = 0; i < len; i++) {
+    sink.write(i & 1 ? "foo|" : "|boo");
+  }
+  return sink.toString().length;
+}
+
 export function benchStringSinkAccumSplit(len: i32): i32 {
   let sink = new StringSink;
   for (let i = 0; i < len; i++) {

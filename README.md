@@ -31,31 +31,35 @@ StringSink can be up to 8700 times faster than native string concatenation!
 
 ```json
 100 strings:
-------------
-benchStringAccum: String += JS: 0.013 ms
-benchStringAccum: String += AS: 0.021 ms
-benchStringSinkAccum: StringSink AS: 0.0056 ms
-benchStringSinkAccumSplit: StringSink AS: 0.0088 ms
-benchStringSinkAccumUnsafe: StringSink AS Unsafe: 0.0064 ms
-benchStringSinkAccumUnsafe2: StringSink AS Unsafe: 0.018 ms
+---------------
+benchStringAccumJS: String += JS: 0.029 ms
+benchStringAccum: String += AS: 0.026 ms
+benchStringSinkAccum: StringSink AS: 0.0063 ms
+benchStringSinkAccum2: StringSink AS: 0.0055 ms
+benchStringSinkAccumSplit: StringSink AS: 0.0093 ms       
+benchStringSinkAccumUnsafe: tringSink AS Unsafe: 0.0049 ms
+benchStringSinkAccumUnsafe2: tringSink AS Unsafe: 0.027 ms
 
 50,000 strings:
 ---------------
-benchStringAccum: String += JS: 0.46 ms
-benchStringAccum: String += AS: 1397.41 ms
-benchStringSinkAccum: StringSink AS: 0.87 ms
-benchStringSinkAccumSplit: StringSink AS: 2.62 ms
-benchStringSinkAccumUnsafe: StringSink AS Unsafe: 0.74 ms
-benchStringSinkAccumUnsafe2: StringSink AS Unsafe: 0.52 ms
+benchStringAccumJS: String += JS: 0.64 ms
+benchStringAccum: String += AS: 1384.81 ms
+benchStringSinkAccum: StringSink AS: 1.29 ms
+benchStringSinkAccum2: StringSink AS: 0.78 ms
+benchStringSinkAccumSplit: StringSink AS: 2.65 ms
+benchStringSinkAccumUnsafe: tringSink AS Unsafe: 0.85 ms
+benchStringSinkAccumUnsafe2: tringSink AS Unsafe: 0.51 ms
 
 200,000 strings:
-----------------
-benchStringAccum: String += JS: 16.45 ms
-benchStringAccum: String += AS: 34270.55 ms
-benchStringSinkAccum: StringSink AS: 5.25 ms
-benchStringSinkAccumSplit: StringSink AS: 11.02 ms
-benchStringSinkAccumUnsafe: StringSink AS Unsafe: 3.15 ms
-benchStringSinkAccumUnsafe2: StringSink AS Unsafe: 2.07 ms
+---------------
+benchStringAccumJS: String += JS: 16.79 ms
+benchStringAccum: String += AS: 30619.66 ms
+benchStringSinkAccum: StringSink AS: 3.55 ms
+benchStringSinkAccum2: StringSink AS: 3.43 ms
+benchStringSinkAccumSplit: StringSink AS: 12.12 ms
+benchStringSinkAccumUnsafe: tringSink AS Unsafe: 3.16 ms
+benchStringSinkAccumUnsafe2: tringSink AS Unsafe: 2.03 ms
+Done in 37.20s.
 ```
 
 ## Usage 1. String accumulation (+=)
