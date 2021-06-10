@@ -7,8 +7,8 @@ const NEW_LINE_CHAR: u16 = 0x0A; // \n
 }
 
 export class StringSink {
-  private buffer: ArrayBuffer;
-  private offset: u32 = 0;
+  protected buffer: ArrayBuffer;
+  protected offset: u32 = 0;
 
   static withCapacity(capacity: i32): StringSink {
     return new StringSink("", capacity);
