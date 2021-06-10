@@ -2,17 +2,15 @@ import { StringSink } from "../index";
 
 describe("Conv", () => {
   const data = "abc";
-  // const utf8Data = String.UTF8.;
 
   it("toArray", () => {
     const sink = new StringSink;
-    const out: Array<u8> = [97, 0, 98, 0, 99, 0];
-
     sink.write(data);
+    const expected: Array<u8> = [97, 0, 98, 0, 99, 0];
 
     let res = sink.to<Array<u8>>();
     expect(res).toHaveLength(data.length * 2);
-    expect(res).toStrictEqual(out);
+    expect(res).toStrictEqual(expected);
   });
 
   it("toStaticArray", () => {
