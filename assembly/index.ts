@@ -7,13 +7,17 @@ const NEW_LINE_CHAR: u16 = 0x0A; // \n
 }
 
 export class StringSink {
-  private buffer: ArrayBuffer;
-  private offset: u32 = 0;
+  protected buffer: ArrayBuffer;
+  protected offset: u32 = 0;
 
-  constructor(initial: string = "") {
+  static withCapacity(capacity: i32): StringSink {
+    return new StringSink("", capacity);
+  }
+
+  constructor(initial: string = "", capacity: i32 = MIN_BUFFER_SIZE) {
     var size = <u32>initial.length << 1;
     this.buffer = changetype<ArrayBuffer>(__new(
-      <i32>max(size, MIN_BUFFER_SIZE),
+      <i32>max(size, max<i32>(MIN_BUFFER_SIZE, capacity)),
       idof<ArrayBuffer>())
     );
     if (size) {
@@ -128,7 +132,7 @@ export class StringSink {
     return out;
   }
 
-  @inline private ensureCapacity(deltaSize: u32): void {
+  @inline protected ensureCapacity(deltaSize: u32): void {
     let oldSize = this.offset;
     let newSize = oldSize + deltaSize;
     if (newSize > <u32>this.capacity) {

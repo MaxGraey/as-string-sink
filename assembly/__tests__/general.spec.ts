@@ -15,6 +15,14 @@ describe("general", () => {
     expect(sink.toString()).toBe("hello");
   });
 
+  it("capacity constructor", () => {
+    let sink = StringSink.withCapacity(128);
+    sink.write("hello")
+    expect(sink.length).toBe(5);
+    expect(sink.capacity).toBe(128);
+    expect(sink.toString()).toBe("hello");
+  });
+
   it("default constructor with one write", () => {
     let sink = new StringSink;
     sink.write("hello");
