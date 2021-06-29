@@ -11,7 +11,7 @@ An efficient dynamically sized string buffer (aka **String Builder**) for Assemb
 class StringSink {
   static withCapacity(capacity: i32)
 
-  constructor(initial: string = "", capacity: i32 = 64)
+  constructor(initial: string = "", capacity: i32 = 32)
 
   get length(): i32
   get capacity(): i32
@@ -20,6 +20,7 @@ class StringSink {
   writeLn(src: string, start?: i32, end?: i32): void
   writeCodePoint(code: i32): void
 
+  reserve(capacity: i32): void
   shrink(): void
   clear(): void
 
