@@ -111,7 +111,8 @@ export class StringSink {
     }
   }
 
-  reserve(capacity: i32): void {
+  reserve(capacity: i32, clear: bool = false): void {
+    if (clear) this.offset = 0;
     this.buffer = changetype<ArrayBuffer>(__renew(
       changetype<usize>(this.buffer),
       max<u32>(this.offset, max<u32>(MIN_BUFFER_SIZE, <u32>capacity << 1))

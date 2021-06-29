@@ -20,7 +20,7 @@ class StringSink {
   writeLn(src: string, start?: i32, end?: i32): void
   writeCodePoint(code: i32): void
 
-  reserve(capacity: i32): void
+  reserve(capacity: i32, clear?: bool): void
   shrink(): void
   clear(): void
 
