@@ -1,4 +1,6 @@
-const MIN_BUFFER_SIZE: u32 = 64;
+const MIN_BUFFER_LEN = 32;
+const MIN_BUFFER_SIZE: u32 = MIN_BUFFER_LEN << 1;
+
 const NEW_LINE_CHAR: u16 = 0x0A; // \n
 
 // @ts-ignore: decorator
@@ -14,10 +16,10 @@ export class StringSink {
     return new StringSink("", capacity);
   }
 
-  constructor(initial: string = "", capacity: i32 = MIN_BUFFER_SIZE) {
+  constructor(initial: string = "", capacity: i32 = MIN_BUFFER_LEN) {
     var size = <u32>initial.length << 1;
     this.buffer = changetype<ArrayBuffer>(__new(
-      <i32>max(size, max<i32>(MIN_BUFFER_SIZE, capacity)),
+      max<u32>(size, max<u32>(MIN_BUFFER_SIZE, <u32>capacity << 1)),
       idof<ArrayBuffer>())
     );
     if (size) {
@@ -35,7 +37,7 @@ export class StringSink {
   }
 
   get capacity(): i32 {
-    return this.buffer.byteLength;
+    return this.buffer.byteLength >>> 1;
   }
 
   write(src: string, start: i32 = 0, end: i32 = i32.MAX_VALUE): void {
@@ -109,18 +111,25 @@ export class StringSink {
     }
   }
 
-  clear(): void {
-    this.offset = 0;
+  reserve(capacity: i32): void {
     this.buffer = changetype<ArrayBuffer>(__renew(
       changetype<usize>(this.buffer),
-      <i32>MIN_BUFFER_SIZE
+      max<u32>(this.offset, max<u32>(MIN_BUFFER_SIZE, <u32>capacity << 1))
     ));
   }
 
   shrink(): void {
     this.buffer = changetype<ArrayBuffer>(__renew(
       changetype<usize>(this.buffer),
-      <i32>max(this.offset, MIN_BUFFER_SIZE)
+      max<u32>(this.offset, MIN_BUFFER_SIZE)
+    ));
+  }
+
+  clear(): void {
+    this.offset = 0;
+    this.buffer = changetype<ArrayBuffer>(__renew(
+      changetype<usize>(this.buffer),
+      MIN_BUFFER_SIZE
     ));
   }
 
@@ -134,11 +143,12 @@ export class StringSink {
 
   @inline protected ensureCapacity(deltaSize: u32): void {
     let oldSize = this.offset;
+    let buffer  = this.buffer;
     let newSize = oldSize + deltaSize;
-    if (newSize > <u32>this.capacity) {
+    if (newSize > <u32>buffer.byteLength) {
       this.buffer = changetype<ArrayBuffer>(__renew(
-        changetype<usize>(this.buffer),
-        <i32>nextPowerOf2(newSize)
+        changetype<usize>(buffer),
+        nextPowerOf2(newSize)
       ));
     }
   }
