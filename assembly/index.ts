@@ -127,11 +127,7 @@ export class StringSink {
   }
 
   clear(): void {
-    this.offset = 0;
-    this.buffer = changetype<ArrayBuffer>(__renew(
-      changetype<usize>(this.buffer),
-      MIN_BUFFER_SIZE
-    ));
+    this.reserve(0, true);
   }
 
   toString(): string {
