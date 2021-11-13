@@ -115,6 +115,36 @@ describe("general", () => {
     expect(sink.toString()).toBe(spaces + "fire:🔥");
   });
 
+  it("test writeNumber", () => {
+    let sink = new StringSink("");
+    let str = "";
+
+    str += "f64.eps: ";
+    sink.write(str);
+
+    str += (-F64.EPSILON).toString();
+    sink.writeNumber(-F64.EPSILON);
+
+    expect(sink.toString()).toBe(str);
+    // sink.writeNumber(<i8>-128);
+
+    str += ", i8.val: ";
+    sink.write(", i8.val: ");
+
+    str += (<i8>-127).toString();
+    sink.writeNumber(<i8>-127);
+
+    expect(sink.toString()).toBe(str);
+
+    str += ", u64.max: ";
+    sink.write(", u64.max: ");
+
+    str += u64.MAX_VALUE.toString();
+    sink.writeNumber(u64.MAX_VALUE);
+
+    expect(sink.toString()).toBe(str);
+  });
+
   it("clear for less than 32 lenght capacity", () => {
     let sink = new StringSink("hello");
     sink.clear();

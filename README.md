@@ -17,13 +17,18 @@ class StringSink {
   get capacity(): i32
 
   write(src: string, start?: i32, end?: i32): void
-  writeLn(src: string, start?: i32, end?: i32): void
+  // Alloc-free write + new line
+  writeLn(src?: string, start?: i32, end?: i32): void
+  // Alloc-free stringify code points
   writeCodePoint(code: i32): void
+  // Alloc-free stringify numbers
+  writeNumber<T>(value: T): void
 
   reserve(capacity: i32, clear?: bool): void
   shrink(): void
   clear(): void
 
+  // Convert buffer to normal string
   toString(): string
 }
 ```
@@ -92,6 +97,35 @@ function toList(arr: string[]): string {
   }
   return res.toString();
 }
+```
+
+Complex example:
+
+```ts
+function zipAndStringify(names: string[], ages: i32[]): string {
+  assert(names.length == ages.length);
+
+  let res = new StringSink();
+  res.writeLn('[');
+  for (let i = 0, len = names.length; i < len; i++) {
+    res.write('  { name: "');
+    res.write(names[i]);
+    res.write('", age: ');
+    res.writeNumber(ages[i]);
+    res.writeLn(' },');
+  }
+  res.write(']');
+  return res.toString();
+}
+
+assert(zipAndStringify(
+  ["Alan", "Elon", "John D."],
+  [109, 50, 51]
+) == `[
+  { name: "Alan", age: 109 },
+  { name: "Elon", age: 50 },
+  { name: "John D.", age: 51 },
+]`);
 ```
 
 ## Usage 2. String accumulation (+=) only part of string
