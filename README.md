@@ -16,10 +16,11 @@ class StringSink {
   get length(): i32
   get capacity(): i32
 
+  // Append sting or substring
   write(src: string, start?: i32, end?: i32): void
-  // Append sting with new line
+  // Append sting or substring with new line
   writeLn(src?: string, start?: i32, end?: i32): void
-  //Append single code point
+  // Append single code point
   writeCodePoint(code: i32): void
   // Append any integer or floating point number
   writeNumber<T>(value: T): void
