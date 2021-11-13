@@ -17,11 +17,11 @@ class StringSink {
   get capacity(): i32
 
   write(src: string, start?: i32, end?: i32): void
-  // Alloc-free write + new line
+  // Append sting with new line
   writeLn(src?: string, start?: i32, end?: i32): void
-  // Alloc-free stringify code points
+  //Append single code point
   writeCodePoint(code: i32): void
-  // Alloc-free stringify numbers
+  // Append any integer or floating point number
   writeNumber<T>(value: T): void
 
   reserve(capacity: i32, clear?: bool): void
