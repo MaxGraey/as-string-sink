@@ -36,30 +36,30 @@ class StringSink {
 
 ## Benchmark Results
 
-StringSink can be up to 8000 times faster than naive string concatenation! And up to 5 times faster than JS concat which uses rope data structure under the hood.
+StringSink can be up to 4000 times faster than naive string concatenation! And up to 5 times faster than JS concat which uses rope data structure under the hood.
 
 100 strings:
 ------------
 ```ts
-String += JS:  0.013 ms
-String += AS:  0.017 ms
-StringSink AS: 0.0034 ms `(5x)`
+String += JS:  0.019 ms
+String += AS:  0.016 ms
+StringSink AS: 0.0043 ms `(4x)`
 ```
 
 50,000 strings:
 ---------------
 ```ts
-String += JS:  3.89 ms
-String += AS:  1219.44 ms
-StringSink AS: 0.54 ms `(2260x)`
+String += JS:  3.70 ms
+String += AS:  526.16 ms
+StringSink AS: 0.48 ms `(1096x)`
 ```
 
 200,000 strings:
 ----------------
 ```ts
-String += JS:  11.29 ms
-String += AS:  18360.15 ms
-StringSink AS: 2.28 ms `(8300x)`
+String += JS:  11.95 ms
+String += AS:  8236.82 ms
+StringSink AS: 2.01 ms `(4097x)`
 ```
 
 ## Usage 1. String accumulation (+=)
