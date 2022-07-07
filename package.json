@@ -1,6 +1,6 @@
 {
   "name": "as-string-sink",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "An efficient dynamically sized string buffer (aka String Builder) for AssemblyScript",
   "keywords": [
     "string",
