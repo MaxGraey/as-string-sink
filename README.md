@@ -36,7 +36,7 @@ class StringSink {
 
 ## Benchmark Results
 
-StringSink can be up to 4000 times faster than naive string concatenation! And up to 5 times faster than JS concat which uses rope data structure under the hood.
+StringSink can be up to 4000 times faster than naive string concatenation! And up to 6 times faster than JS concat which uses rope data structure under the hood.
 
 100 strings:
 ------------
