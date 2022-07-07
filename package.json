@@ -24,7 +24,6 @@
     "test:ci": "echo \"CI tests disabled for now\" && exit 0"
   },
   "devDependencies": {
-    "@as-pect/cli": "^6.2.4",
     "assemblyscript": "^0.20.13"
   },
   "files": [
