@@ -41,25 +41,25 @@ StringSink can be up to 4000 times faster than naive string concatenation! And u
 100 strings:
 ------------
 ```ts
-String += JS:  0.019 ms
-String += AS:  0.016 ms
-StringSink AS: 0.0043 ms `(4x)`
+String += JS:  0.013 ms
+String += AS:  0.014 ms
+StringSink AS: 0.0042 ms `(3x)`
 ```
 
 50,000 strings:
 ---------------
 ```ts
-String += JS:  3.70 ms
-String += AS:  526.16 ms
-StringSink AS: 0.48 ms `(1096x)`
+String += JS:  3.34 ms
+String += AS:  509.54 ms
+StringSink AS: 0.73 ms `(~700x)`
 ```
 
 200,000 strings:
 ----------------
 ```ts
-String += JS:  11.95 ms
-String += AS:  8236.82 ms
-StringSink AS: 2.01 ms `(4097x)`
+String += JS:  11.93 ms
+String += AS:  7622.72 ms
+StringSink AS: 2.88 ms `(~2600x)`
 ```
 
 ## Usage 1. String accumulation (+=)
