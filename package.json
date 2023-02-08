@@ -1,6 +1,6 @@
 {
   "name": "as-string-sink",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "An efficient dynamically sized string buffer (aka String Builder) for AssemblyScript",
   "keywords": [
     "string",
@@ -20,11 +20,12 @@
     "build:bench": "asc benchmark/index.ts -o benchmark/build/bench.wasm -b benchmark/build/bench.wasm -O3 --noAssert",
     "build": "npm run build:untouched && npm run build:optimized",
     "bench": "npm run build:bench && node benchmark/run.js",
-    "test": "asp --verbose",
-    "test:ci": "echo \"CI tests disabled for now\" && exit 0"
+    "test": "asp --config as-pect.config.mjs --verbose ",
+    "test:ci": "asp --config as-pect.config.mjs --summary --no-logo"
   },
   "devDependencies": {
-    "assemblyscript": "^0.20.13"
+    "@as-pect/cli": "^8.0.1",
+    "assemblyscript": "^0.27.0"
   },
   "files": [
     "assembly/",
