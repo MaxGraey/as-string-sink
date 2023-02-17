@@ -111,18 +111,7 @@ export class StringSink {
   writeNumber<T extends number>(value: T): void {
     let offset = this.offset;
     if (isInteger<T>()) {
-      let maxCapacity = 0;
-      // this also include size for sign
-      if (sizeof<T>() == 1) {
-        maxCapacity = 4 << 1;
-      } else if (sizeof<T>() == 2) {
-        maxCapacity = 6 << 1;
-      } else if (sizeof<T>() == 4) {
-        maxCapacity = 11 << 1;
-      } else if (sizeof<T>() == 8) {
-        maxCapacity = 21 << 1;
-      }
-      this.ensureCapacity(maxCapacity);
+      this.ensureCapacity(sizeof<T>() * 4 << 1);
       offset += itoa_buffered(
         changetype<usize>(this.buffer) + offset,
         value
